@@ -1,0 +1,1 @@
+if (obj_game.debug) draw_self();

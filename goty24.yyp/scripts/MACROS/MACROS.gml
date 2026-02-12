@@ -1,0 +1,22 @@
+#macro RIGHT 1
+#macro LEFT -1
+
+#macro SEC 60
+
+#macro INTERACT_MAX_DIST 5
+
+#macro STAND_FREE 0
+#macro STAND_ATTACK_PUNCH 1
+#macro STAND_ATTACK_KICK 2
+#macro AIR_FREE 3
+#macro AIR_ATTACK_KICK 4
+#macro STAND_HIT 5
+
+#macro ADVANCING_RIGHT 1
+#macro ADVANCING_LEFT -1
+
+#macro PU_HEALTH 0
+
+#macro PLAYER 0
+#macro ENEMY 1
+#macro HAZARD 2

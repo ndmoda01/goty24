@@ -1,0 +1,1 @@
+if (instance_exists(my_body_hurtbox)) instance_destroy(my_body_hurtbox);
