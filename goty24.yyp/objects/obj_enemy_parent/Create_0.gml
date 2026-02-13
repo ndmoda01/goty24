@@ -3,7 +3,7 @@ hp_current = hp_max;
 z = 0;
 climbing = false;
 
-facing = RIGHT;
+facing = RIGHT_SIDE;
 
 flash = 0;
 state = enemy_state_stand_free;
@@ -12,7 +12,7 @@ dead = false;
 target_player = noone;
 activate_delay = 0;
 
-target_attack_side = RIGHT;
+target_attack_side = RIGHT_SIDE;
 target_x = x;
 target_y = y;
 
@@ -32,7 +32,7 @@ in_the_air = false;
 
 //combat variables
 attack_range = 15;
-last_hit_from = RIGHT;
+last_hit_from = RIGHT_SIDE;
 stun = 0;
 hard_knockdown_max = 30;
 hard_knockdown_timer = hard_knockdown_max;

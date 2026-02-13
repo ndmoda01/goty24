@@ -49,7 +49,7 @@ flash = 0;
 //save the current hitbox into an instance variable so it can be modified in other events (moving air attacks,etc)
 current_hitbox = noone;
 
-last_hit_from = RIGHT;
+last_hit_from = RIGHT_SIDE;
 stun = 0;
 hard_knockdown_max = 30;
 hard_knockdown_timer = hard_knockdown_max;

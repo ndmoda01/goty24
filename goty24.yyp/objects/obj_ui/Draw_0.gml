@@ -79,7 +79,7 @@ if (room == rm_level_1_1) or
 		input_delay++;
 		
 		if (input_delay >= SEC*2) {
-			if (input_check_pressed(all)){
+			if (InputPressed(all)){
 				//game_restart();
 				
 				create_transition_and_move(rm_title);
@@ -105,7 +105,7 @@ if (room == rm_level_1_1) or
 		draw_text_scribble(_x,_y-40,"[fa_center][fnt_menu_large]GAME OVER");
 	
 		if (fade_in_cur_alpha >= 1) {
-			if (input_check_pressed(all)){
+			if (InputPressed(all)){
 				//game_restart();
 				
 				create_transition_and_move(rm_title);
@@ -151,29 +151,29 @@ if (instance_exists(obj_pause)){
 	//draw_text_scribble(_x,_y+(_y_buffer*4),"[fa_center][fa_middle][fnt_menu_medium]QUIT GAME");
 	
 	//menu movement
-	if (input_check_pressed("up")) and (pause_menu_index  > 0) pause_menu_index--;
-	if (input_check_pressed("down")) and (pause_menu_index  < pause_menu_option_max) pause_menu_index++;
+	if (InputPressed(INPUT_VERB.UP)) and (pause_menu_index  > 0) pause_menu_index--;
+	if (InputPressed(INPUT_VERB.DOWN)) and (pause_menu_index  < pause_menu_option_max) pause_menu_index++;
 
 	//highlight current option and check for option selection
 	switch(pause_menu_index){
 		case 0: 
 			draw_text_scribble(_x,_y+_y_buffer,"[fa_center][fa_middle][fnt_menu_medium][c_yellow]*RESUME*");
-			if (input_check_pressed("select")) instance_destroy(obj_pause);
+			if (InputPressed(INPUT_VERB.SELECT)) instance_destroy(obj_pause);
 		break;
 		
 		case 1: 
 			draw_text_scribble(_x,_y+(_y_buffer*2),"[fa_center][fa_middle][fnt_menu_medium][c_yellow]*RESTART LEVEL*");
-			if (input_check_pressed("select")) room_restart();
+			if (InputPressed(INPUT_VERB.SELECT)) room_restart();
 		break;
 		
 		case 2: 
 			draw_text_scribble(_x,_y+(_y_buffer*3),"[fa_center][fa_middle][fnt_menu_medium][c_yellow]*QUIT TO MAIN MENU*");
-			if (input_check_pressed("select")) create_transition_and_move(rm_title);
+			if (InputPressed(INPUT_VERB.SELECT)) create_transition_and_move(rm_title);
 		break;
 		
 		case 3: 
 		//	draw_text_scribble(_x,_y+(_y_buffer*4),"[fa_center][fa_middle][fnt_menu_medium][c_yellow]*QUIT GAME*");
-			if (input_check_pressed("select")) game_end();
+			if (InputPressed(INPUT_VERB.SELECT)) game_end();
 		break;
 	}
 	

@@ -1,5 +1,8 @@
-#macro RIGHT 1
-#macro LEFT -1
+#macro MOVE_RIGHT 1
+#macro MOVE_LEFT -1
+#macro RIGHT_SIDE 1
+#macro LEFT_SIDE -1
+
 
 #macro SEC 60
 

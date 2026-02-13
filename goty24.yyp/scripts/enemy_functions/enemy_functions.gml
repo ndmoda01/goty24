@@ -80,7 +80,7 @@ function enemy_state_stand_free(){
 			//}
 		
 			//pick target attack side
-			target_attack_side = choose(LEFT,RIGHT);
+			target_attack_side = choose(MOVE_LEFT,MOVE_RIGHT);
 		
 			//set_target_position();
 		}

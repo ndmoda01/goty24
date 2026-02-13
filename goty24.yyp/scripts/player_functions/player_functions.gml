@@ -30,7 +30,7 @@ function player_state_stand_free(){
 		
 		//air attacks
 		//if (key_attack){
-		if (input_check_pressed("attack",player_number)){
+		if (InputPressed(INPUT_VERB.ATTACK,player_number)){
 			 //if (jump_ascending == true){ state = player_state_attack_air_kick_up;}
 			// if (jump_ascending == false){ state = player_state_attack_air_kick_down;}
 		}
@@ -49,7 +49,7 @@ function player_state_stand_free(){
 		//if you're not dashing, and you're not already in another attack state, go into the first attack
 		if (dashing == false){
 			//regular attack, tap button
-			if (input_check_pressed("attack",player_number)){ 
+			if (InputPressed(INPUT_VERB.ATTACK,player_number)){ 
 				
 				
 				start_animation(seq_teen_guy_stand_attack_1,obj_hitbox_player,obj_hurtbox_player);
@@ -62,7 +62,7 @@ function player_state_stand_free(){
 			
 			}
 			
-			if (input_check_long("attack",player_number,player_number)){
+			if (InputLong(INPUT_VERB.ATTACK,player_number,player_number)){
 				//state = player_state_attack_charge_1;
 				
 			}
@@ -71,7 +71,7 @@ function player_state_stand_free(){
 			
 		}
 		//if you are dashing
-		//if (input_check_pressed("attack",player_number)) and (dashing == true) { state = player_state_attack_dash_1;}
+		//if (InputPressed(INPUT_VERB.ATTACK,player_number)) and (dashing == true) { state = player_state_attack_dash_1;}
 		
 		
 		
@@ -88,7 +88,7 @@ function player_movement_and_collisions(_x_move_ok = 1, _y_move_ok = 1, _move_sp
 	
 	//player movement
 	//jumping
-	if (can_jump > 0) and (input_check_pressed("jump",player_number)) and (sprite_index != sprite_hit){	
+	if (can_jump > 0) and (InputPressed(INPUT_VERB.JUMP,player_number)) and (sprite_index != sprite_hit){	
 		z_speed =  -jump_amount;
 		can_jump = 0;
 		in_the_air = true;
@@ -96,7 +96,7 @@ function player_movement_and_collisions(_x_move_ok = 1, _y_move_ok = 1, _move_sp
 		grav = 1.5;
 	}
 	//variable jump check
-	if (z_speed < 0) and (!input_check("jump",player_number)) {
+	if (z_speed < 0) and (!InputCheck(INPUT_VERB.JUMP,player_number)) {
 		z_speed = max(z_speed, -jump_amount/4);
 		grav = 3;
 	}
@@ -105,11 +105,12 @@ function player_movement_and_collisions(_x_move_ok = 1, _y_move_ok = 1, _move_sp
 	//first check that you're on the ground and not dashing already
 	if (in_the_air == false) and (move_speed != run_speed){
 		
-		//check to see if there was a double tap in a direction and it was held
-		if (input_check_double("right",player_number) or input_check_double("left",player_number)){
+		//check to see if there was a double tap in a direction (and was held? can being held be checked for in Input 10?)
+		if (InputRepeat(INPUT_VERB.RIGHT,player_number) or InputRepeat(INPUT_VERB.LEFT,player_number)){
 			dashing = true;
 			move_speed = run_speed;
 		}
+		//maybe this can switch to check if input was released to see if the input was "held" in Input v10
 		//if it's not held, then go back to walk speed
 		else {
 			dashing = false;
@@ -117,13 +118,13 @@ function player_movement_and_collisions(_x_move_ok = 1, _y_move_ok = 1, _move_sp
 		}
 	}
    
-	move_direction = input_direction(0,"left", "right", "up", "down",player_number);
+	move_direction = InputDirection(0,INPUT_CLUSTER.NAVIGATION,player_number);
 	
 	if (z != 0) z_speed = z_speed+grav;
 	
 	//x and y speeds
 	var _speed = 0;
-	var _input_amount = input_distance("left", "right", "up", "down",player_number);
+	var _input_amount = InputDistance(INPUT_CLUSTER.NAVIGATION,player_number);
 
 	//clamp the input_amount so diagonal movement isn't faster
 	_input_amount = clamp(_input_amount,0,1);

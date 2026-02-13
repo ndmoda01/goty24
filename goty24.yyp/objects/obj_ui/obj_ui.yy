@@ -9,8 +9,8 @@
   "name":"obj_ui",
   "overriddenProperties":[],
   "parent":{
-    "name":"Game Controllers",
-    "path":"folders/Objects/Game Controllers.yy",
+    "name":"UI",
+    "path":"folders/Objects/UI.yy",
   },
   "parentObjectId":null,
   "persistent":false,
