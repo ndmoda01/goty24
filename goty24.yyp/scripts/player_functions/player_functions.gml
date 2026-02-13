@@ -104,7 +104,7 @@ function player_movement_and_collisions(_x_move_ok = 1, _y_move_ok = 1, _move_sp
 	//dash check
 	//first check that you're on the ground and not dashing already
 	if (in_the_air == false) and (move_speed != run_speed){
-		
+		/*
 		//check to see if there was a double tap in a direction (and was held? can being held be checked for in Input 10?)
 		if (InputRepeat(INPUT_VERB.RIGHT,player_number) or InputRepeat(INPUT_VERB.LEFT,player_number)){
 			dashing = true;
@@ -116,6 +116,7 @@ function player_movement_and_collisions(_x_move_ok = 1, _y_move_ok = 1, _move_sp
 			dashing = false;
 			move_speed = walk_speed;
 		}
+		*/
 	}
    
 	move_direction = InputDirection(0,INPUT_CLUSTER.NAVIGATION,player_number);
