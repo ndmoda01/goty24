@@ -9,8 +9,8 @@
   "name":"obj_hurtbox_parent",
   "overriddenProperties":[],
   "parent":{
-    "name":"Hitbox, Hurtbox",
-    "path":"folders/Objects/Hitbox, Hurtbox.yy",
+    "name":"Animation Based",
+    "path":"folders/Objects/Hitbox, Hurtbox/Animation Based.yy",
   },
   "parentObjectId":null,
   "persistent":false,

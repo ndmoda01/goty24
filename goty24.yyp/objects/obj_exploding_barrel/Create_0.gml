@@ -18,4 +18,5 @@ my_body_hurtbox = hurtbox_create(20,38);
 
 my_loot = noone;
 
-init_animation();
+//no longer needed
+//init_animation();

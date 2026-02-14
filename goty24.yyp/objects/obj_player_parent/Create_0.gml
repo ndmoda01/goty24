@@ -6,6 +6,7 @@ z = 0;
 my_name = "P1"
 player_number = 1;
 
+
 //pull your number of lives from obj_game when you're created and store it 
 player_lives = obj_game.player_1_lives;
 respawn_frames_max = 180;
@@ -45,6 +46,7 @@ z_floor = 0; //determine floor in z-axis for collisions
 height = 48;
 
 state = player_state_stand_free;
+state_name = "";
 flash = 0;
 //save the current hitbox into an instance variable so it can be modified in other events (moving air attacks,etc)
 current_hitbox = noone;
@@ -78,9 +80,13 @@ pallet = 0;
 my_body_hurtbox_x_offset = -1;
 my_body_hurtbox = hurtbox_create(120,280);
 
+//no longer needed Sequence based
+/*
 init_animation();
 hitbox = -1;
 hurtbox = -1;
+*/
+
 
 //set attack values (change to structs)
 attack_stand_1_damage = 3;
@@ -98,3 +104,10 @@ special_attack = false;
 
 
 //state = player_state_spawning;
+
+//animation based attack data
+//save the current hitbox into an instance variable 
+//so it can be modified in other events (moving air attacks,etc)
+hitbox_inst = noone;
+sprite_attack_stand_1 = spr_teen_guy_sword_1b;
+sprite_attack_stand_1_hitbox = spr_teen_guy_sword_1b_hb;

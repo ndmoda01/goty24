@@ -1,19 +1,19 @@
 {
   "$GMObject":"",
-  "%Name":"obj_hitbox_hazard",
+  "%Name":"Xobj_hurtbox_enemy",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_hitbox_hazard",
+  "name":"Xobj_hurtbox_enemy",
   "overriddenProperties":[],
   "parent":{
-    "name":"Hitboxes",
-    "path":"folders/Objects/Hitbox, Hurtbox/Hitboxes.yy",
+    "name":"Hurtboxes",
+    "path":"folders/Objects/Hitbox, Hurtbox/Sequence Based/Hurtboxes.yy",
   },
   "parentObjectId":{
-    "name":"obj_hitbox_parent",
-    "path":"objects/obj_hitbox_parent/obj_hitbox_parent.yy",
+    "name":"Xobj_hurtbox_parent",
+    "path":"objects/Xobj_hurtbox_parent/Xobj_hurtbox_parent.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_hitbox",
-    "path":"sprites/spr_hitbox/spr_hitbox.yy",
+    "name":"spr_hurtbox",
+    "path":"sprites/spr_hurtbox/spr_hurtbox.yy",
   },
   "spriteMaskId":null,
   "visible":true,

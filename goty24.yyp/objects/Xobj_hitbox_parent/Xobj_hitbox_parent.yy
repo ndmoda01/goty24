@@ -12,8 +12,8 @@
   "name":"Xobj_hitbox_parent",
   "overriddenProperties":[],
   "parent":{
-    "name":"Hitbox, Hurtbox",
-    "path":"folders/Objects/Hitbox, Hurtbox.yy",
+    "name":"Sequence Based",
+    "path":"folders/Objects/Hitbox, Hurtbox/Sequence Based.yy",
   },
   "parentObjectId":null,
   "persistent":false,

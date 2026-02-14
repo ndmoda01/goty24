@@ -27,19 +27,25 @@ function flash_white(){
 function hurtbox_create(_width = 16, _height = 46){
 	//create the hurtbox for the entity, and then modify it so it fits it's host size
 	
+	
+	/* unique hurtbox objects only needed for sequences based and can now be removed
 	var _hurt_b = -1;
 	
 	//if you're an enemy
 	if (object_is_ancestor(object_index,obj_enemy_parent)){
-		_hurt_b = instance_create_depth(x,y,-4000,obj_hurtbox_enemy);
+		_hurt_b = instance_create_depth(x,y,-4000,Xobj_hurtbox_enemy);
 	}
 	//if you're a player
 	else if (object_is_ancestor(object_index,obj_player_parent)){
-		_hurt_b = instance_create_depth(x,y,-4000,obj_hurtbox_player);
+		_hurt_b = instance_create_depth(x,y,-4000,Xobj_hurtbox_player);
 	}
 	//if you're an enviornmental object
-	else _hurt_b = instance_create_depth(x,y,-4000,obj_hurtbox_hazard);
+	else _hurt_b = instance_create_depth(x,y,-4000,Xobj_hurtbox_hazard);
+	*/
 	
+	//create a general hurtbox for yourself (all objects use the same hurtbox object)
+	
+	var _hurt_b = instance_create_depth(x,y,-4000,obj_hurtbox_parent);
 	
 	_hurt_b.owner = id;
 	_hurt_b.image_xscale = _width*image_xscale;
@@ -49,13 +55,14 @@ function hurtbox_create(_width = 16, _height = 46){
 }
 
 function hurtbox_update(_x_offset = 0, _y_offset = 0){
-	//update the hurtbox location each frame so it is accurate
 	
+	//update the hurtbox location each frame so it is accurate
 	if (instance_exists(my_body_hurtbox)){
 		my_body_hurtbox.image_xscale = my_body_hurtbox.image_xscale*facing;
 		my_body_hurtbox.x = (x - my_body_hurtbox.sprite_width/2) + (_x_offset*facing); //center it
-		my_body_hurtbox.y = (y+z) + _y_offset; 
+		my_body_hurtbox.y = (y+z) + _y_offset; //offset the height using z, so it's accurate to its owner's on screen position
 	}
+	
 }
 	
 function place_meeting_3d(_x,_y,_z,_obj){
@@ -77,6 +84,31 @@ function place_meeting_3d(_x,_y,_z,_obj){
 
 	//return
 	return xyMeeting and zMeeting;
+	
+}
+	
+function animation_end(){
+	
+	/// @description animation_end(sprite_index,image_index, rate)
+	/// @param {real} <sprite_index> The index of the sprite being animated
+	/// @param {real} <image_index> The current frame value
+	/// @param {real} <rate> -See Below-
+	///     The rate of change in frames per step if not
+	///     using built in image_index/image_speed.  
+	///     Don't use if you don't think you need this.  You probably don't.
+ 
+	//returns true if the animation will loop this step.
+ 
+	var _sprite=sprite_index;
+	var _image=image_index;
+	if(argument_count > 0)   _sprite=argument[0];
+	if(argument_count > 1)  _image=argument[1];
+	var _type=sprite_get_speed_type(sprite_index);
+	var _spd=sprite_get_speed(sprite_index)*image_speed;
+	if(_type == spritespeed_framespersecond)
+	    _spd = _spd/game_get_speed(gamespeed_fps);
+	if(argument_count > 2) _spd=argument[2];
+	return _image+_spd >= sprite_get_number(_sprite);	
 	
 }
 	

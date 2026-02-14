@@ -1,7 +1,7 @@
 if (screen_pause()) exit;
 
 var _hit_by_attack_this_frame = ds_list_create(); //store all instances hit this frame into list
-var _hits = instance_place_list(x,y,obj_hurtbox_parent,_hit_by_attack_this_frame,false);
+var _hits = instance_place_list(x,y,Xobj_hurtbox_parent,_hit_by_attack_this_frame,false);
 var _damage = damage; //make it a local variable to pass to victim's with statement
 var _facing = sign(image_xscale)*-1;
 var _knockback = knockback;

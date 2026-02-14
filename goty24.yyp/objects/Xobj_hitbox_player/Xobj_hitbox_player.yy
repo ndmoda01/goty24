@@ -1,21 +1,21 @@
 {
   "$GMObject":"",
-  "%Name":"obj_hitbox_player",
+  "%Name":"Xobj_hitbox_player",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_hurtbox_enemy","path":"objects/obj_hurtbox_enemy/obj_hurtbox_enemy.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_hurtbox_hazard","path":"objects/obj_hurtbox_hazard/obj_hurtbox_hazard.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"Xobj_hurtbox_enemy","path":"objects/Xobj_hurtbox_enemy/Xobj_hurtbox_enemy.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"Xobj_hurtbox_hazard","path":"objects/Xobj_hurtbox_hazard/Xobj_hurtbox_hazard.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_hitbox_player",
+  "name":"Xobj_hitbox_player",
   "overriddenProperties":[],
   "parent":{
     "name":"Hitboxes",
-    "path":"folders/Objects/Hitbox, Hurtbox/Hitboxes.yy",
+    "path":"folders/Objects/Hitbox, Hurtbox/Sequence Based/Hitboxes.yy",
   },
   "parentObjectId":{
-    "name":"obj_hitbox_parent",
-    "path":"objects/obj_hitbox_parent/obj_hitbox_parent.yy",
+    "name":"XXobj_hitbox_parent",
+    "path":"objects/XXobj_hitbox_parent/XXobj_hitbox_parent.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

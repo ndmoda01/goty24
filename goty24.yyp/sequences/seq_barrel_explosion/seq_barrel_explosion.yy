@@ -41,7 +41,7 @@
   "tracks":[
     {"$GMInstanceTrack":"","%Name":"obj_hitbox_enemy","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<AssetInstanceKeyframe>":"","Keyframes":[
           {"$Keyframe<AssetInstanceKeyframe>":"","Channels":{
-              "0":{"$AssetInstanceKeyframe":"","Id":{"name":"obj_hitbox_enemy","path":"objects/obj_hitbox_enemy/obj_hitbox_enemy.yy",},"resourceType":"AssetInstanceKeyframe","resourceVersion":"2.0",},
+              "0":{"$AssetInstanceKeyframe":"","Id":{"name":"Xobj_hitbox_enemy","path":"objects/Xobj_hitbox_enemy/Xobj_hitbox_enemy.yy",},"resourceType":"AssetInstanceKeyframe","resourceVersion":"2.0",},
             },"Disabled":false,"id":"1c1364ce-88e3-4c4f-b509-46af75cec34f","IsCreationKey":false,"Key":5.0,"Length":13.0,"resourceType":"Keyframe<AssetInstanceKeyframe>","resourceVersion":"2.0","Stretch":false,},
         ],"resourceType":"KeyframeStore<AssetInstanceKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"obj_hitbox_enemy","resourceType":"GMInstanceTrack","resourceVersion":"2.0","trackColour":4282970855,"tracks":[
         {"$GMRealTrack":"","%Name":"origin","builtinName":16,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":true,"keyframes":{"$KeyframeStore<RealKeyframe>":"","Keyframes":[

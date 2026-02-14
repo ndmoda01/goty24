@@ -1,4 +1,5 @@
 function player_state_stand_free(){
+	state_name = "stand_free";
 	
 	player_movement_and_collisions();
 
@@ -51,8 +52,9 @@ function player_state_stand_free(){
 			//regular attack, tap button
 			if (InputPressed(INPUT_VERB.ATTACK,player_number)){ 
 				
+				state = player_state_attack_stand_1;
 				
-				start_animation(seq_teen_guy_stand_attack_1,obj_hitbox_player,obj_hurtbox_player);
+				//start_animation(seq_teen_guy_stand_attack_1,Xobj_hitbox_player,Xobj_hurtbox_player);
 				//if (state != player_state_attack_stand_1) or (state != player_state_attack_stand_2) or 
 				//   (state != player_state_attack_stand_3) or (state != player_state_attack_stand_4) or 
 				//   (state != player_state_attack_stand_5){
@@ -190,6 +192,7 @@ function player_movement_and_collisions(_x_move_ok = 1, _y_move_ok = 1, _move_sp
 }
 	
 function player_state_dead(){
+	state_name = "dead";
 	
 	//decrease your lives number
 	//update the obj_game variable that is tracking lives too

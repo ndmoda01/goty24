@@ -14,18 +14,18 @@ if (activated == true){
 	explode_timer--;
 }
 
-if (explode_timer <= 0) and (active_sequence == -1) and (exploded == false){
-	start_animation(seq_barrel_explosion,obj_hitbox_hazard,obj_hurtbox_hazard);
-	exploded = true;
-}
+//if (explode_timer <= 0) and (active_sequence == -1) and (exploded == false){
+	//start_animation(seq_barrel_explosion,Xobj_hitbox_hazard,Xobj_hurtbox_hazard);
+	//exploded = true;
+//}
 
 //if you're not enabled due to an animation, check to see if its done
 //get restored and destroy your sequence
-if (actor_enabled == false) and (exploded == true){
-	check_animation_end();
-}
+//if (actor_enabled == false) and (exploded == true){
+	//check_animation_end();
+//}
 
 //if you've been reenabled and exploded, then destroy yourself
-if (actor_enabled == true) and (exploded == true){
-	instance_destroy();
-}
+//if (actor_enabled == true) and (exploded == true){
+	//instance_destroy();
+//}

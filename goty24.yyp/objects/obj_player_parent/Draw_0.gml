@@ -12,6 +12,8 @@ if (obj_game.debug == true){
 	var c = c_yellow;
 	draw_rectangle_color(bbox_left,bbox_top,bbox_right-1,bbox_bottom-1,c,c,c,c,true);
 
+	//draw state name
+	draw_text(10,300,"P"+string(player_number)+": "+string(state_name));
 }
 else{
 	//if you're KO'd blink

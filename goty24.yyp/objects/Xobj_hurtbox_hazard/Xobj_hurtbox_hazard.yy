@@ -1,19 +1,19 @@
 {
   "$GMObject":"",
-  "%Name":"obj_hurtbox_hazard",
+  "%Name":"Xobj_hurtbox_hazard",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_hurtbox_hazard",
+  "name":"Xobj_hurtbox_hazard",
   "overriddenProperties":[],
   "parent":{
     "name":"Hurtboxes",
-    "path":"folders/Objects/Hitbox, Hurtbox/Hurtboxes.yy",
+    "path":"folders/Objects/Hitbox, Hurtbox/Sequence Based/Hurtboxes.yy",
   },
   "parentObjectId":{
-    "name":"obj_hurtbox_parent",
-    "path":"objects/obj_hurtbox_parent/obj_hurtbox_parent.yy",
+    "name":"Xobj_hurtbox_parent",
+    "path":"objects/Xobj_hurtbox_parent/Xobj_hurtbox_parent.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
