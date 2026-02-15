@@ -1,3 +1,5 @@
+//this object is used to lock the players into a specific area once they enter
+//triggers combat camera movement and will activate enemies
 
 is_active = false;
 

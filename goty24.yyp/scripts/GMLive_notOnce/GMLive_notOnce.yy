@@ -6,7 +6,7 @@
   "name":"GMLive_notOnce",
   "parent":{
     "name":"GMLive",
-    "path":"folders/Extensions/GMLive.yy",
+    "path":"folders/GMLive.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

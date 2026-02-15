@@ -1,5 +1,5 @@
-//dead state
 function enemy_state_dead(){
+	//dead state once enemy is out of hit points
 	
 	//set death animation and anything else you only need to do 1 time in this state
 	if (dead == false){
@@ -12,13 +12,10 @@ function enemy_state_dead(){
 		//delete your hurtbox
 		if (instance_exists(my_body_hurtbox)) instance_destroy(my_body_hurtbox);
 		
-
 		//if you knock out someone in 1 hit, they will need to know which side they were hit from last and move away from it
 		//x_speed = (sign(image_xscale)*-1)*.8;
 		x_speed = (last_hit_from*-1)*.8;
 		z_speed = -2.5;
-		
-		
 	}
 	
 	
@@ -45,9 +42,10 @@ function enemy_state_dead(){
 	
 }
 
-//idle state
 function enemy_state_stand_free(){
+	//default idle state (not attacking or being hit)
 	
+	//offset used to spawn enemies in a different times
 	if (activate_delay >= 0){
 		activate_delay--;
 		
@@ -86,7 +84,6 @@ function enemy_state_stand_free(){
 		}
 	}
 	
-	
 	//update facing to face target if it exists, and check for attack
 	if (instance_exists(target_player)){
 		if (target_player.x < x) facing = -1;
@@ -108,12 +105,14 @@ function enemy_state_stand_free(){
 	image_xscale = abs(image_xscale)*facing;
 }
 	
-//inactive while waiting to enter the screen
 function enemy_state_br_spawn_wait(){
+	//inactive while waiting to enter the screen
+	
 }
 	
-	
 function draw_self_and_fade_out(){
+	//this function was made to have the enemy blink out after being killed
+	//this should be rewritten to be simpler
 	
 	//fade out and destroy yourself
 	if (fade_out == true){
@@ -154,8 +153,9 @@ function draw_self_and_fade_out(){
 }
 	
 function enemy_draw(){
+	//enemy draw draw function needed because appearence of vertical height will be achieved by adding the z value to y position
+	//player and enemy might be able to share this function, but currently in player image_xscale is modified prior to the draw
 	
-	//enemy draw
 	//color_mod.SetShader(pallet);       //comment this line and shader reset below out to disable pallet swapping
 	draw_sprite_ext(sprite_index,image_index,x,y+z,image_xscale*facing,image_yscale,image_angle,image_blend,image_alpha);
 	//shader_reset();                    //comment this line and colormod shader set above to disable pallet swapping

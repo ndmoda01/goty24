@@ -7,7 +7,7 @@ if (keyboard_check_pressed(vk_f1)) debug = !debug;
  
  //reset input for player 1
  //can be used reset player 1's input source from keyboard to the next input source (controller)
- if (keyboard_check_pressed(vk_f9)) //No longer available in v10, input_source_clear(0);
+ if (keyboard_check_pressed(vk_f9)){}; //No longer available in v10, input_source_clear(0);
  
 //pause
 //prevent pause after game over and during a transition

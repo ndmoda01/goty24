@@ -1,35 +1,29 @@
-//set default variables
-
-owner = noone;
-hit_by_attack = ds_list_create(); //keeps track of which entities have been hit by current attack
-attack_depth_range = 5;
-deal_damage_to = noone;
-
-damage = 1;
-stun = 0;
-knockback = 0;
-hit_spark_x = 0;
-hit_spark_y = 0;
-
-//track how many times the attack made contact
-hits_landed = 0;
-
-hard_knockdown = false;
+other_player_obj	= obj_player_2;
+owner				= 1;
+enemy				= 2;
 
 
-////loop through all players and add them (if friendly fire is off)
-//var _num_players = instance_number(obj_player_parent); 
-//var _player = noone;
 
-////loop through all players
-//for (var i = 1; i < _num_players+1; i++){
-	
-//	//get the current instance
-//	//instance_find starts from 0
-//	_player = instance_find(obj_player_parent,i-1);
-	
-//	//add yourself and other players to the list so you and they can't be hit by your attacks
-//	ds_list_add(hit_by_attack,_player);
-//	//show_debug_message("I added player "+string(i)+" the the hitbox list");
-	
-//}
+//base_damage			= 10;
+damage_strength		= 1;
+pushback			= 5; //the amount of pushback on hit
+
+//the attack will need a range to determine the depth of the attack (or looking at the scene from top down the width of the attack)
+//this value will determine how close (+ or - Y pos) a hurtbox will need to be to be hit
+//a hittable object will need to be within the range +/- Y of the attack_depth_range to be hit
+attack_depth_range = 10;
+
+
+//dmg				= 10;
+continuous		= false; //does it hit every frame? or just once?
+
+//hit_spark		= obj_hitspark;
+//hit_sound		= snd_med_attack_hit;
+
+
+
+
+//new code
+//array that will hold the instances this hitbox should damage
+//ex. [enemy] or [player, environment] or [enemy, enviornment] or [player, enemy, enviornment] 
+deal_damage_to = array_create(2,-1);

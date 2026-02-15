@@ -1,10 +1,11 @@
 function player_state_stand_free(){
+	//default state (not attacking, not being hit, etc)
 	state_name = "stand_free";
 	
 	player_movement_and_collisions();
 
 	//sprite management
-	//get facing for sprites
+	//update facing direction for sprites
 	if (x_speed != 0){
 		facing = sign(x_speed);
 		if (dashing) sprite_index = sprite_run;
@@ -24,10 +25,9 @@ function player_state_stand_free(){
 	//in the air
 	if (in_the_air){	
 		
-		//set jump sprite if it isn't already
+		//set to jump sprite if it isn't already
 		if (sprite_index != sprite_jump) sprite_index = sprite_jump;
 		if (sprite_index == sprite_jump) and (image_index >= 1) image_speed = 0;
-		
 		
 		//air attacks
 		//if (key_attack){
@@ -35,14 +35,11 @@ function player_state_stand_free(){
 			 //if (jump_ascending == true){ state = player_state_attack_air_kick_up;}
 			// if (jump_ascending == false){ state = player_state_attack_air_kick_down;}
 		}
-	
-	
 	}
 	//on the ground
 	else{
 		//reset jump delay while on ground so player can jump again
 		can_jump = 5;
-	
 	
 		//standing attack
 		//start first attack
@@ -64,27 +61,22 @@ function player_state_stand_free(){
 			
 			}
 			
+			//charge up attack (button pressed and held)
 			if (InputLong(INPUT_VERB.ATTACK,player_number,player_number)){
 				//state = player_state_attack_charge_1;
 				
 			}
 			
-			
-			
 		}
 		//if you are dashing
 		//if (InputPressed(INPUT_VERB.ATTACK,player_number)) and (dashing == true) { state = player_state_attack_dash_1;}
-		
-		
-		
-		
+	
 	}
 
 }
 	
 function player_movement_and_collisions(_x_move_ok = 1, _y_move_ok = 1, _move_speed = walk_speed){
-	
-	
+	//get intended movement input, check for collisions (2D & 3D), then apply if no collisions
 	
 	move_speed = _move_speed;
 	
@@ -121,25 +113,26 @@ function player_movement_and_collisions(_x_move_ok = 1, _y_move_ok = 1, _move_sp
 		*/
 	}
    
+	//determine the direction the player is intending to move
 	move_direction = InputDirection(0,INPUT_CLUSTER.NAVIGATION,player_number);
 	
-	if (z != 0) z_speed = z_speed+grav;
-	
-	//x and y speeds
+	//determine the amount player is intending to move
 	var _speed = 0;
 	var _input_amount = InputDistance(INPUT_CLUSTER.NAVIGATION,player_number);
-
 	//clamp the input_amount so diagonal movement isn't faster
 	_input_amount = clamp(_input_amount,0,1);
 	_speed = move_speed * _input_amount;
 	
+	//update x, y, z speed variables
 	x_speed = lengthdir_x(_speed, move_direction)*_x_move_ok;
 	y_speed = lengthdir_y(_speed, move_direction)*_y_move_ok;
+	if (z != 0) z_speed = z_speed+grav;
 	
-	//collisions
+	//collision checks (2d)
 	if place_meeting(x+x_speed,y,obj_wall) x_speed = 0;
 	if place_meeting(x,y+y_speed,obj_wall) y_speed = 0;
-
+	
+	//collision checks (3d)
 	if place_meeting_3d(x + x_speed, y, z,obj_climbable_parent) x_speed = 0;
 	if place_meeting_3d(x, y+y_speed,z,obj_climbable_parent) y_speed = 0;
 	if place_meeting_3d(x,y,z+z_speed+grav,obj_climbable_parent){ 
@@ -150,6 +143,7 @@ function player_movement_and_collisions(_x_move_ok = 1, _y_move_ok = 1, _move_sp
 	}
 	else climbing = false;
 	
+	//check to see if player entered a battle region, if so temporarily disable movement (if the region is active (enemies present)
 	var _my_battle_region = instance_nearest(x,y,obj_battle_region);
 	
 	//prevent player from moving outside battle region when active
@@ -163,10 +157,10 @@ function player_movement_and_collisions(_x_move_ok = 1, _y_move_ok = 1, _move_sp
 		var _y1 = _my_battle_region.top_edge;
 		var _x2 = _my_battle_region.right_edge-_buff-_br_buffer_width;
 		var _y2 = _my_battle_region.bottom_edge;
-		//horizontal
+		//horizontal (check player's x)
 		if (point_in_rectangle(x+x_speed,y,_x1,_y1,_x2,_y2) == false) x_speed = 0;
 		
-		//vertical
+		//vertical (check player's y)
 		if (point_in_rectangle(x,y+y_speed,_x1,_y1,_x2,_y2) == false) y_speed = 0;
 		
 	}
@@ -174,7 +168,7 @@ function player_movement_and_collisions(_x_move_ok = 1, _y_move_ok = 1, _move_sp
 	//save current z to be z previous before updating it below
 	z_previous = z;
 	
-	//movement
+	//apply movement (if no collisions above were detected)
 	x += x_speed;
 	y += y_speed;
 	
@@ -192,6 +186,7 @@ function player_movement_and_collisions(_x_move_ok = 1, _y_move_ok = 1, _move_sp
 }
 	
 function player_state_dead(){
+	//state once player runs out of hit points
 	state_name = "dead";
 	
 	//decrease your lives number
@@ -201,7 +196,7 @@ function player_state_dead(){
 		case 1: obj_game.player_2_lives--; break;
 	}
 	
-	
+	//number of frames to pass before the player will respawn (if they still have lives left)
 	respawn_frames_current--;
 	
 	//rewrite this code so that local player_lives variable is not needed (only checking that variable on obj_game)
@@ -244,12 +239,13 @@ function player_state_dead(){
 		}
 		
 	}
+	//don't actually destroy the player (not neeeded)
 	//instance_destroy();
 }
 	
 function player_draw(){
+	//player draw function needed because appearence of vertical height will be achieved by adding the z value to y position
 	
-	//player draw
 	//color_mod.SetShader(pallet);
 	draw_sprite_ext(sprite_index,image_index,x,y+z,image_xscale,image_yscale,image_angle,image_blend,image_alpha);
 	//shader_reset();

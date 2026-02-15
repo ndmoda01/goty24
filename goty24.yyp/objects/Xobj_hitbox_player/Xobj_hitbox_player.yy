@@ -14,8 +14,8 @@
     "path":"folders/Objects/Hitbox, Hurtbox/Sequence Based/Hitboxes.yy",
   },
   "parentObjectId":{
-    "name":"XXobj_hitbox_parent",
-    "path":"objects/XXobj_hitbox_parent/XXobj_hitbox_parent.yy",
+    "name":"Xobj_hitbox_parent",
+    "path":"objects/Xobj_hitbox_parent/Xobj_hitbox_parent.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

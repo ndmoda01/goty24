@@ -1,5 +1,4 @@
-/// @description Insert description here
-
+//any object that will be climable by players will need to be a child of this object
 z = 0;
 height  = 10;
 

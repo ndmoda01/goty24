@@ -1,8 +1,8 @@
 #macro MOVE_RIGHT 1
 #macro MOVE_LEFT -1
+
 #macro RIGHT_SIDE 1
 #macro LEFT_SIDE -1
-
 
 #macro SEC 60
 
@@ -15,10 +15,10 @@
 #macro AIR_ATTACK_KICK 4
 #macro STAND_HIT 5
 
+#macro PU_HEALTH 0
+
 #macro ADVANCING_RIGHT 1
 #macro ADVANCING_LEFT -1
-
-#macro PU_HEALTH 0
 
 #macro PLAYER 0
 #macro ENEMY 1

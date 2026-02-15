@@ -144,7 +144,7 @@ function attack(
 	_knockback = 1,
 	_stun = 1,
 	_hb_sprite = spr_teen_guy_sword_1b_hb,
-	_attack_depth_range = 10)
+	_attack_depth_range = 100)
 	
 	constructor{
 	
@@ -190,6 +190,7 @@ function player_state_attack_stand_1(){
 		image_index = 0; //need to make sure you're starting from 0 so hitbox sync
 	
 		//might need to change attack to an object scope varaible, so it can be accessed below 
+		//now a struct can also be passed into instance create layer to potentially hand over all attack variables
 		hitbox_inst = instance_create_layer(x,y,"Instances",obj_hitbox_parent);
 		//speed of attack sprite an hitbox sprite must be same speed and start from index 0
 		//so that the sprites will be in sync
@@ -201,6 +202,7 @@ function player_state_attack_stand_1(){
 		hitbox_inst.hit_spark_y = attack_stand_1_hit_spark_y;
 		hitbox_inst.image_xscale = hitbox_inst.image_xscale*facing;
 		hitbox_inst.stun = 15;
+		hitbox_inst.attack_depth_range = 60;
 		
 	}
 	

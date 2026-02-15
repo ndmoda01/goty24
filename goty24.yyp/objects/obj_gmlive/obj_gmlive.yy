@@ -12,7 +12,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"GMLive",
-    "path":"folders/Extensions/GMLive.yy",
+    "path":"folders/GMLive.yy",
   },
   "parentObjectId":null,
   "persistent":true,
