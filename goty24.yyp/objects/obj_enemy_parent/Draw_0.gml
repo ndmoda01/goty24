@@ -1,5 +1,4 @@
 //shadow
-
 if (fade_out == false){
 	if (climbing == false) {
 		if (state == enemy_state_br_spawn_wait) and (obj_game.debug == false){

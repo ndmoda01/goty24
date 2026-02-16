@@ -1,3 +1,5 @@
+if (live_call()) return live_result;
+
 var _cam_x = camera_get_view_x(view_camera[0]);
 var _cam_y = camera_get_view_y(view_camera[0]);
 var _cam_w = camera_get_view_width(view_camera[0]);
@@ -114,6 +116,9 @@ if (room == rm_level_1_1) or
 	
 	
 	}
+	
+	
+	
 }
 
 if (room == rm_title){

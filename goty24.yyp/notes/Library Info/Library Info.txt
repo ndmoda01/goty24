@@ -1,0 +1,44 @@
+**********************
+*****Clean Shapes*****
+**********************
+It can make lots of shapes in code and apply different colors / effects to them.
+
+Documentation: 
+https://github.com/JujuAdams/Clean-Shapes/wiki/Shapes
+https://github.com/JujuAdams/Clean-Shapes/wiki/Function-Index
+
+
+**********************
+*****ColorMod*********
+**********************
+It's a fast pallet swapper. Other libraries like this exsist, but this method is fast and easy to add.
+Documentation: https://github.com/JujuAdams/ColorMod
+
+
+**********************
+*****GMLive***********
+**********************
+Live code editing.
+Documentation: 
+https://yal.cc/docs/gm/gmlive/
+https://yellowafterlife.itch.io/gamemaker-live
+
+
+**********************
+*****GMRoomLoader*****
+**********************
+Allows room loading at runtime.
+Documentation: https://glebtsereteli.github.io/GMRoomLoader/pages/home/gettingStarted/gettingStarted
+
+**********************
+*****Input v10.3******
+**********************
+It handles player input to help support with lots of different controllers and platforms.
+Documentation: https://offalynne.grebedoc.dev/Input/#/10.3/
+
+
+**********************
+*****Scribble v9.7****
+**********************
+It's a powerful text renderer that can apply lots of effects and formats to text when it's drawn.
+Documentation: https://www.jujuadams.com/Scribble/#/latest/

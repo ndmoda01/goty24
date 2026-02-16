@@ -32,4 +32,6 @@ else{
 
 //draw_text(x-6,y-10,string(x)+","+string(y));
 
+
+
 flash_white();
