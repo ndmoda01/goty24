@@ -18,9 +18,9 @@ var _scale = 3;
 
 //regular gameplay level UI
 if (room == rm_level_1_1) or
-(room == rm_level_1_2a) or
-(room == rm_level_1_2b) or
-(room == rm_level_1_2c){
+(room == rm_lvl_1_hallway_1_A) or
+(room == rm_lvl_1_hallway_1_B) or
+(room == rm_lvl_1_hallway_1_C){
 	
 	//draw each player ui (name, stats, etc)
 	var _current_players = instance_number(obj_player_parent);

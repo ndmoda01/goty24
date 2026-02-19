@@ -22,7 +22,7 @@ if (room == rm_level_1_1){
 
 //room loader setup
 //load in the rooms that will need to be loaded dynamically
-RoomLoader.DataInit(rm_level_1_2a,rm_level_1_2b,rm_level_1_2c,rm_level_1_3,rm_level_1_3a);
+RoomLoader.DataInit(rm_lvl_1_hallway_1_A,rm_lvl_1_hallway_1_B,rm_lvl_1_hallway_1_C,rm_level_1_3,rm_level_1_3a);
 //RoomLoader.data_init(rm_level_1_2b);
 //RoomLoader.data_init(rm_level_1_2c);
 //RoomLoader.data_init(rm_level_1_3);
