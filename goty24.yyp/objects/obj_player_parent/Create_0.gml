@@ -58,10 +58,10 @@ hard_knockdown_timer = hard_knockdown_max;
 
 //set default sprites and collision mask
 //sprite_idle = spr_brawler_girl_idle;
-sprite_idle = spr_teen_guy_idle_b;
+sprite_idle = spr_teen_guy_idle_2;
 sprite_jump = spr_brawler_girl_jump_3;
 //sprite_walk = spr_brawler_girl_walk;
-sprite_walk = spr_teen_guy_run_b;
+sprite_walk = spr_teen_guy_run_2;
 sprite_run = spr_brawler_girl_run;
 //sprite_shadow = spr_shadow;
 sprite_shadow = spr_shadow_3;
@@ -109,5 +109,14 @@ special_attack = false;
 //save the current hitbox into an instance variable 
 //so it can be modified in other events (moving air attacks,etc)
 hitbox_inst = noone;
-sprite_attack_stand_1 = spr_teen_guy_sword_1b;
-sprite_attack_stand_1_hitbox = spr_teen_guy_sword_1b_hb;
+//sprite_attack_stand_1 = spr_teen_guy_sword_1b;
+//sprite_attack_stand_1_hitbox = spr_teen_guy_sword_1b_hb;
+
+sprite_attack_stand_1_A = spr_teen_guy_stand_sword_1_A;
+sprite_attack_stand_1_A_hitbox = spr_teen_guy_stand_sword_1_A_hb;
+
+sprite_attack_stand_1_B = spr_teen_guy_stand_sword_1_B;
+sprite_attack_stand_1_B_hitbox = spr_teen_guy_stand_sword_1_B_hb;
+
+sprite_attack_stand_1_C = spr_teen_guy_stand_sword_1_C;
+sprite_attack_stand_1_C_hitbox = spr_teen_guy_stand_sword_1_C_hb;

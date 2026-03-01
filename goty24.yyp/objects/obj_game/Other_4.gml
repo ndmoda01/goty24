@@ -1,6 +1,6 @@
 /// @description Insert description here
 
-if (room == rm_title){
+if (room == rm_main_menu){
 	//reset any previous game over status
 	obj_game.game_over = false;	
 	obj_game.level_complete = false; 

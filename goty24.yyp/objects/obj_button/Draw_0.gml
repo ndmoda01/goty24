@@ -14,11 +14,15 @@ if (selected == true){
 //normal - you can select it
 else if (selectable == true){
 	if (place_meeting(x,y,obj_menu_cursor)){
+		draw_sprite_ext(sprite_index,0,x,y,image_xscale,image_yscale,image_angle,image_blend,image_alpha);
 		var c = c_white;
-		draw_text_color(x+16,y,my_text,c,c,c,c,1);	
+		draw_text_color(x+16,y,my_text,c,c,c,c,1);
+		
 	}
 	else{
+		draw_sprite_ext(sprite_index,1,x,y,image_xscale,image_yscale,image_angle,image_blend,image_alpha);
 		draw_text(x+16,y,my_text);
+		
 	}
 }
 //can't select it

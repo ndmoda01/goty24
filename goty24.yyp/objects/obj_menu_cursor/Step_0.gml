@@ -15,7 +15,8 @@ if (place_meeting(x,y,obj_button) and (InputPressed(INPUT_VERB.SELECT)) and (!ke
 if (InputPressed(INPUT_VERB.UP) and position_index > 0) {
 	//audio_play_sound(snd_cursor_move,5,false);
 	position_index --;
-};
+}
+
 if (InputPressed(INPUT_VERB.DOWN) and position[position_index+1] != -1){
 	//audio_play_sound(snd_cursor_move,5,false);
 	position_index ++	

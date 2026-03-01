@@ -35,7 +35,9 @@ game_set_speed(60,gamespeed_fps);
 //multiplayer input setup for Input library
 //input sources are assigned to the next player that doesn't have an input already assigned up to the max player count
 // no longer needed in Input v10? input_source_mode_set(INPUT_SOURCE_MODE.JOIN);
+//INPUT_MAX_PLAYERS macro needs to be set to allow for more players (currently 2 max)
 InputPartySetParams(gp_face3,1,numb_players_max,false,undefined);
+//InputPartySetJoin(true);
 
 
 room_goto_next();

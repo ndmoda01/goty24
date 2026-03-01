@@ -18,9 +18,11 @@ var _scale = 3;
 
 //regular gameplay level UI
 if (room == rm_level_1_1) or
+(room == rm_lvl_1_classroom) or
 (room == rm_lvl_1_hallway_1_A) or
 (room == rm_lvl_1_hallway_1_B) or
-(room == rm_lvl_1_hallway_1_C){
+(room == rm_lvl_1_hallway_1_C) or
+(room == rm_lvl_1_gym){
 	
 	//draw each player ui (name, stats, etc)
 	var _current_players = instance_number(obj_player_parent);
@@ -84,7 +86,7 @@ if (room == rm_level_1_1) or
 			if (InputPressed(all)){
 				//game_restart();
 				
-				create_transition_and_move(rm_title);
+				create_transition_and_move(rm_main_menu);
 			}
 		}
 	}
@@ -110,7 +112,7 @@ if (room == rm_level_1_1) or
 			if (InputPressed(all)){
 				//game_restart();
 				
-				create_transition_and_move(rm_title);
+				create_transition_and_move(rm_main_menu);
 			}
 		}
 	
@@ -121,12 +123,33 @@ if (room == rm_level_1_1) or
 	
 }
 
-if (room == rm_title){
+if (room == rm_main_menu){
 
 	var _x = room_width/2;
 	var _y = room_height/2;
 
-	draw_text_scribble(_x,_y-30,"[fa_center][fa_bottom][fnt_menu_large] Beat Em Up");
+	draw_text_scribble(_x,_y-30,"[fa_center][fa_bottom][fnt_menu_large] Horror Beat Em Up");
+	draw_text_scribble(_x,_y+30,"[fa_center][fa_bottom][fnt_menu_large] Main Menu");
+	
+	//buttons are drawn in the room by editing the button create events
+}
+
+if (room == rm_lvl_1_intro){
+
+	var _x = room_width/2;
+	var _y = room_height/2;
+
+	draw_text_scribble(_x,_y-100,"[fa_center][fa_bottom][fnt_menu_large] Intro");
+	
+	//buttons are drawn in the room by editing the button create events
+}
+
+if (room == rm_lvl_1_ending){
+
+	var _x = room_width/2;
+	var _y = room_height/2;
+
+	draw_text_scribble(_x,_y-100,"[fa_center][fa_bottom][fnt_menu_large] Ending");
 	
 	//buttons are drawn in the room by editing the button create events
 }
@@ -173,7 +196,7 @@ if (instance_exists(obj_pause)){
 		
 		case 2: 
 			draw_text_scribble(_x,_y+(_y_buffer*3),"[fa_center][fa_middle][fnt_menu_medium][c_yellow]*QUIT TO MAIN MENU*");
-			if (InputPressed(INPUT_VERB.SELECT)) create_transition_and_move(rm_title);
+			if (InputPressed(INPUT_VERB.SELECT)) create_transition_and_move(rm_main_menu);
 		break;
 		
 		case 3: 

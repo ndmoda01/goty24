@@ -1,0 +1,1 @@
+target_room = rm_lvl_1_hallway_1_A;

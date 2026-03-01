@@ -49,7 +49,27 @@ function player_state_stand_free(){
 			//regular attack, tap button
 			if (InputPressed(INPUT_VERB.ATTACK,player_number)){ 
 				
-				state = player_state_attack_stand_1;
+				//switch(state){
+				//	case player_state_stand_free:
+				//		state = player_state_attack_stand_1_A;
+				//	break;
+					
+				//	case player_state_attack_stand_1_A:
+				//		state = player_state_attack_stand_1_B;
+				//	break;
+					
+				//	case player_state_attack_stand_1_B:
+				//		state = player_state_attack_stand_1_C;
+				//	break;
+					
+				//	case player_state_attack_stand_1_C:
+				//		//do nothing
+				//	break;
+					
+					
+				//}
+				
+				state = player_state_attack_stand_1_A;
 				
 				//start_animation(seq_teen_guy_stand_attack_1,Xobj_hitbox_player,Xobj_hurtbox_player);
 				//if (state != player_state_attack_stand_1) or (state != player_state_attack_stand_2) or 

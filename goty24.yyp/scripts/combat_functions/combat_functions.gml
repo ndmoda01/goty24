@@ -137,6 +137,7 @@ function attack(
 
 //attack data constructor
 function attack(
+	//attack structs will be created by the player and enemy using this constructor
 
 	//default arguments (these will be used if not specific in the created struct)
 	_name = "attack_1",
@@ -158,9 +159,79 @@ function attack(
 	
 }
 
-function player_state_attack_stand_1(){
+function player_state_attack_stand_1_A(){
 	//attack 1
-	state_name = "attack_stand_1";
+	state_name = "attack_stand_1_A";
+	
+	//stop the player's momentem / movement during attack
+	x_speed = 0;
+	y_speed = 0;
+	
+	//if you are already attacking, and attack again
+	//need to check this first, so you can set it to be this sprite if it isn't
+	//you can only check once logic item here to see if they are already attacking or not here
+	if (sprite_index == sprite_attack_stand_1_A){
+		
+		//additional checks must be after confirmation of animation state so logic doesn't flow to the else statement every time
+		if (InputPressed(INPUT_VERB.ATTACK,player_number)){
+			//destroy the current attack hitbox and switch to next chain attack state
+			if (instance_exists(current_hitbox)){
+				instance_destroy(current_hitbox);
+				
+			}
+			
+			state = player_state_attack_stand_1_B;
+			//image_blend = c_lime;
+		}
+		///check for an additional attack input and confirm you are past the min frames to cancel (past the first frame in the jab sprite)
+		//also check to see if the attack connected or not
+		//if (key_attack){
+		//if (input_check_pressed("attack",player_number)){
+			//find your previous attack and check if it has connected
+			//switch to next state and destroy the previous attack hitbox
+			//if (instance_exists(current_hitbox) and (current_hitbox.hits_landed >=1)){
+			//	instance_destroy(current_hitbox);
+			//	state = player_state_attack_stand_2;	
+			//}
+		//}
+	}
+	
+	
+	//if you're on the ground, press attack, in free state (not already attacking), and not moving
+	//this check keeps this code from repeating each step
+	else {
+	
+		sprite_index = sprite_attack_stand_1_A;
+		image_index = 0; //need to make sure you're starting from 0 so hitbox sync
+	
+		//might need to change attack to an object scope varaible, so it can be accessed below 
+		//now a struct can also be passed into instance create layer to potentially hand over all attack variables
+		hitbox_inst = instance_create_layer(x,y,"Instances",obj_hitbox_parent);
+		//speed of attack sprite an hitbox sprite must be same speed and start from index 0
+		//so that the sprites will be in sync
+		hitbox_inst.sprite_index = sprite_attack_stand_1_A_hitbox;
+		hitbox_inst.damage = attack_stand_1_damage;
+		hitbox_inst.owner = id;
+		hitbox_inst.knockback = attack_stand_1_knockback;
+		hitbox_inst.hit_spark_x = attack_stand_1_hit_spark_x*facing;
+		hitbox_inst.hit_spark_y = attack_stand_1_hit_spark_y;
+		hitbox_inst.image_xscale = hitbox_inst.image_xscale*facing;
+		hitbox_inst.stun = 15;
+		hitbox_inst.attack_depth_range = 60;
+		
+	}
+	
+	//reset back to idle if your animation would loop after this frame
+	if (animation_end()){
+		sprite_index = sprite_idle;	
+		state = player_state_stand_free;
+		hitbox_inst = noone;
+	}
+}
+
+function player_state_attack_stand_1_B(){
+	//attack 1
+	state_name = "attack_stand_1_B";
 	
 	//stop the player's momentem / movement during attack
 	x_speed = 0;
@@ -168,7 +239,38 @@ function player_state_attack_stand_1(){
 	
 	//if you are already attacking
 	//need to check this first, so you can set it to be this sprite if it isn't
-	if (sprite_index == sprite_attack_stand_1){
+	if (sprite_index == sprite_attack_stand_1_B){
+		
+		//destroy the current attack hitbox and switch to next chain attack state
+		if (InputPressed(INPUT_VERB.ATTACK,player_number)){
+			if (instance_exists(current_hitbox)){
+				instance_destroy(current_hitbox);
+				
+			}
+			
+			state = player_state_attack_stand_1_C;	
+		}
+		
+		///check for an additional attack input and confirm you are past the min frames to cancel (past the first frame in the jab sprite)
+		//also check to see if the attack connected or not
+		//if (key_attack){
+		//if (input_check_pressed("attack",player_number)){
+			//find your previous attack and check if it has connected
+			//switch to next state and destroy the previous attack hitbox
+			//if (instance_exists(current_hitbox) and (current_hitbox.hits_landed >=1)){
+			//	instance_destroy(current_hitbox);
+			//	state = player_state_attack_stand_2;	
+			//}
+		//}
+	}
+	//already attacking, but don't press an additional attack
+	else if (sprite_index == sprite_attack_stand_1_B){
+		//destroy the current attack hitbox and switch to next chain attack state
+		//if (instance_exists(current_hitbox)){
+		//	instance_destroy(current_hitbox);
+		//	state = player_state_attack_stand_1_C;	
+		//}
+		
 		///check for an additional attack input and confirm you are past the min frames to cancel (past the first frame in the jab sprite)
 		//also check to see if the attack connected or not
 		//if (key_attack){
@@ -186,7 +288,7 @@ function player_state_attack_stand_1(){
 	//this check keeps this code from repeating each step
 	else {
 	
-		sprite_index = sprite_attack_stand_1;
+		sprite_index = sprite_attack_stand_1_B;
 		image_index = 0; //need to make sure you're starting from 0 so hitbox sync
 	
 		//might need to change attack to an object scope varaible, so it can be accessed below 
@@ -194,7 +296,63 @@ function player_state_attack_stand_1(){
 		hitbox_inst = instance_create_layer(x,y,"Instances",obj_hitbox_parent);
 		//speed of attack sprite an hitbox sprite must be same speed and start from index 0
 		//so that the sprites will be in sync
-		hitbox_inst.sprite_index = sprite_attack_stand_1_hitbox;
+		hitbox_inst.sprite_index = sprite_attack_stand_1_B_hitbox;
+		hitbox_inst.damage = attack_stand_1_damage;
+		hitbox_inst.owner = id;
+		hitbox_inst.knockback = attack_stand_1_knockback;
+		hitbox_inst.hit_spark_x = attack_stand_1_hit_spark_x*facing;
+		hitbox_inst.hit_spark_y = attack_stand_1_hit_spark_y;
+		hitbox_inst.image_xscale = hitbox_inst.image_xscale*facing;
+		hitbox_inst.stun = 15;
+		hitbox_inst.attack_depth_range = 60;
+		
+	}
+	
+	//reset back to idle if your animation would loop after this frame
+	if (animation_end()){
+		sprite_index = sprite_idle;	
+		state = player_state_stand_free;
+		hitbox_inst = noone;
+	}
+}
+
+function player_state_attack_stand_1_C(){
+	//attack 1
+	state_name = "attack_stand_1_C";
+	
+	//stop the player's momentem / movement during attack
+	x_speed = 0;
+	y_speed = 0;
+	
+	//if you are already attacking
+	//need to check this first, so you can set it to be this sprite if it isn't
+	if (sprite_index == sprite_attack_stand_1_C){
+		///check for an additional attack input and confirm you are past the min frames to cancel (past the first frame in the jab sprite)
+		//also check to see if the attack connected or not
+		//if (key_attack){
+		//if (input_check_pressed("attack",player_number)){
+			//find your previous attack and check if it has connected
+			//switch to next state and destroy the previous attack hitbox
+			//if (instance_exists(current_hitbox) and (current_hitbox.hits_landed >=1)){
+			//	instance_destroy(current_hitbox);
+			//	state = player_state_attack_stand_2;	
+			//}
+		//}
+	}
+	
+	//if you're on the ground, press attack, in free state (not already attacking), and not moving
+	//this check keeps this code from repeating each step
+	else {
+	
+		sprite_index = sprite_attack_stand_1_C;
+		image_index = 0; //need to make sure you're starting from 0 so hitbox sync
+	
+		//might need to change attack to an object scope varaible, so it can be accessed below 
+		//now a struct can also be passed into instance create layer to potentially hand over all attack variables
+		hitbox_inst = instance_create_layer(x,y,"Instances",obj_hitbox_parent);
+		//speed of attack sprite an hitbox sprite must be same speed and start from index 0
+		//so that the sprites will be in sync
+		hitbox_inst.sprite_index = sprite_attack_stand_1_C_hitbox;
 		hitbox_inst.damage = attack_stand_1_damage;
 		hitbox_inst.owner = id;
 		hitbox_inst.knockback = attack_stand_1_knockback;
