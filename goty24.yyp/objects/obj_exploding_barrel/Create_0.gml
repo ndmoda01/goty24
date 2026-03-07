@@ -1,7 +1,8 @@
 // Inherit the parent event
 event_inherited();
 
-height = 26;
+//height = 26;
+height = 156;
 
 hp_max = 1;
 hp_current = hp_max;
@@ -14,7 +15,9 @@ image_speed = 0;
 
 //create your hurtbox
 my_body_hurtbox_x_offset = -1;
-my_body_hurtbox = hurtbox_create(20,38);
+my_body_hurtbox = hurtbox_create(120,216);
+
+in_the_air = false;
 
 my_loot = noone;
 

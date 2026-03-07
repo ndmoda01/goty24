@@ -266,8 +266,8 @@ function player_state_dead(){
 function player_draw(){
 	//player draw function needed because appearence of vertical height will be achieved by adding the z value to y position
 	
-	//color_mod.SetShader(pallet);
+	color_mod.SetShader(pallet);
 	draw_sprite_ext(sprite_index,image_index,x,y+z,image_xscale,image_yscale,image_angle,image_blend,image_alpha);
-	//shader_reset();
+	shader_reset();
 	
 }

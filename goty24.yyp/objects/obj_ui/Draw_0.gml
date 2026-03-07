@@ -44,7 +44,11 @@ if (room == rm_level_1_1) or
 			draw_text(_ui_x+_name_x_buff+200+(_player_ui_space_gap*p),_ui_y+_name_y_buff,string("x"+string(_inst[p].player_lives)));
 	
 			//health bar
-			color_mod.SetShader(_inst[p].pallet);
+			//color_mod.SetShader(_inst[p].pallet);
+			//switch(p){
+			//	case 0:	obj_player_1.color_mod.SetShader("P1");break;
+			//	case 1: obj_player_2.color_mod.SetShader("P2");break;
+			//}
 			draw_sprite_ext(spr_player_health_bar_2,0,_ui_x+(_player_ui_space_gap*p),_ui_y+_hb_y_buff,_scale,_scale,0,c_white,1);
 		
 			for (var i=0; i < _inst[p].hp_max; i++){
@@ -56,7 +60,7 @@ if (room == rm_level_1_1) or
 				var _sep = 4*_scale;
 				draw_sprite_ext(spr_player_health_bar_2,_img,(_ui_x+_sep*i)+(_player_ui_space_gap*p),_ui_y+_hb_y_buff,_scale,_scale,0,c_white,1);
 			}
-			shader_reset();
+			//shader_reset();
 	}
 	
 	var _max_players = obj_game.numb_players_max;

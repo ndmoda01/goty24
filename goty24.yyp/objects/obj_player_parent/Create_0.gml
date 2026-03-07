@@ -73,8 +73,33 @@ sprite_dead = spr_brawler_girl_ko_2;
 mask_index = spr_teen_guy_idle_b;
 
 
-color_mod = ColorModFromSprite(spr_brawler_girl_pallet_1,0,true);
-pallet = 0;
+//color_mod = ColorModFromSprite(spr_brawler_girl_pallet_1,0,true);
+var c1 = #eb2464;
+var c2 = #D8A1B3;
+var c3 = #24EBAB;
+var c4 = #A1D8C6;
+var c5 = #000000;
+var c6 = #D68A52;
+var c7 = #6F6666;
+var c8 = #FFFFFF;
+color_mod = new ColorMod([c1,c2,c5,c6,c7,c8]);
+color_mod.PaletteAdd("default",[c1,c2,c5,c6,c7,c8]);
+color_mod.PaletteAdd("P1",[c1, c2, c5,c6,c7,c8]);
+color_mod.PaletteAdd("P2",[c3, c4, c5,c6,c7,c8]);
+pallet = "P1";
+
+
+/// Step 1: Create a ColorMod struct at the start of the game
+///     global.colorModForPlayer = ColorMod([#a084f1, #8966ea, #6759a4, #524280]);
+/// 
+/// Step 2: Adds palettes to the ColorMod struct
+///     global.colorModForPlayer.PaletteAdd("green", [#82cc71, #68b656, #539f42, #479234]);
+///     global.colorModForPlayer.PaletteAdd("blue",  [#2aaaf3, #249ee3, #2992ce, #1f7db3]);
+/// 
+/// Step 3: In a Draw event, set the ColorMod shader, draw a sprite, then reset the shader
+///     global.colorModForPlayer.SetShader(paletteName);
+///     draw_sprite(sPlayer, 0, x, y);
+///     shader_reset();
 
 //create your hurtbox
 my_body_hurtbox_x_offset = -1;

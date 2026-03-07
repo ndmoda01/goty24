@@ -128,12 +128,12 @@ if (_hits > 0){
 						//_hit_spark.sprite_index = spr_hit_spark;
 						//_hit_spark.image_angle = irandom(360);
 						//play hit sound if you're not playing it already
-						if (!audio_is_playing(snd_player_hit)) audio_play_sound(snd_player_hit,2,false);
+						//if (!audio_is_playing(snd_player_hit)) audio_play_sound(snd_player_hit,2,false);
 						
 						//hitting a player
 						if (object_is_ancestor(object_index,obj_player_parent)) {
-							if (other.hard_knockdown == false) state = player_state_hit;
-							if (other.hard_knockdown == true) state = player_state_hard_knockdown;
+							//if (other.hard_knockdown == false) state = player_state_hit;
+							//if (other.hard_knockdown == true) state = player_state_hard_knockdown;
 						}
 						
 						//hitting an enemy

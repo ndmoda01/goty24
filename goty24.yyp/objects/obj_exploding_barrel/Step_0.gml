@@ -9,9 +9,11 @@ if (hp_current <= 0) activated = true;
 if (activated == true){ 
 	//change to animated flashing barrel
 	image_speed = 1;
-	sprite_index = spr_exploding_barrel_activated;
+	//sprite_index = spr_exploding_barrel_activated_2;
 	explode_timer--;
 }
+
+if (explode_timer <= 0) instance_destroy();
 
 //if (explode_timer <= 0) and (active_sequence == -1) and (exploded == false){
 	//start_animation(seq_barrel_explosion,Xobj_hitbox_hazard,Xobj_hurtbox_hazard);

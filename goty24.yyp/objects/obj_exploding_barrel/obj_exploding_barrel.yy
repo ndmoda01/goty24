@@ -36,8 +36,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_exploding_barrel",
-    "path":"sprites/spr_exploding_barrel/spr_exploding_barrel.yy",
+    "name":"spr_exploding_barrel_activated_2",
+    "path":"sprites/spr_exploding_barrel_activated_2/spr_exploding_barrel_activated_2.yy",
   },
   "spriteMaskId":null,
   "visible":true,
