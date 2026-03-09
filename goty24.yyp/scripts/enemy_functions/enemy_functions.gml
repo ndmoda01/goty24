@@ -1,4 +1,5 @@
 function enemy_state_dead(){
+	state_name = "dead";
 	//dead state once enemy is out of hit points
 	
 	//set death animation and anything else you only need to do 1 time in this state
@@ -33,17 +34,19 @@ function enemy_state_dead(){
 	}
 	
 	//once animation is over, fade out
-	//if (animation_end()){
-	//	x_speed = 0;
-	//	y_speed = 0;
-	//	z_speed = 0;
-	//	fade_out = true;
-	//}
+	if (animation_end()){
+		x_speed = 0;
+		y_speed = 0;
+		z_speed = 0;
+		//fade_out = true;
+		instance_destroy();
+	}
 	
 }
 
 function enemy_state_stand_free(){
 	//default idle state (not attacking or being hit)
+	state_name = "stand_free"
 	
 	//offset used to spawn enemies in a different times
 	if (activate_delay >= 0){
@@ -65,6 +68,8 @@ function enemy_state_stand_free(){
 			in_the_air = false;	
 		}
 	}	
+	
+	
 	
 	//set target to closest player if you don't already have one
 	if (target_player == noone) or (!instance_exists(target_player)){
@@ -92,6 +97,7 @@ function enemy_state_stand_free(){
 		//if player is already within attack range, give a chance for attack
 		if(distance_to_object(target_player) <= attack_range) and (abs(y-target_player.y) < INTERACT_MAX_DIST){
 			//attack
+			
 			//state = enemy_state_target_reached;
 		}
 		//if player is out of range, move in their direction
@@ -103,6 +109,14 @@ function enemy_state_stand_free(){
 	
 	//flip sprite based on direction
 	image_xscale = abs(image_xscale)*facing;
+	
+	//temp attack test
+	attack_timer --;
+	if (attack_timer <= 0){
+		
+		if (distance_to_object(obj_player_1) < 50) state = enemy_attack_1;
+		attack_timer = 60;
+	}
 }
 	
 function enemy_state_br_spawn_wait(){
@@ -155,9 +169,45 @@ function draw_self_and_fade_out(){
 function enemy_draw(){
 	//enemy draw draw function needed because appearence of vertical height will be achieved by adding the z value to y position
 	//player and enemy might be able to share this function, but currently in player image_xscale is modified prior to the draw
-	
+	//draw_sprite(sprite_index,image_index,x,y);
 	//color_mod.SetShader(pallet);       //comment this line and shader reset below out to disable pallet swapping
-	draw_sprite_ext(sprite_index,image_index,x,y+z,image_xscale*facing,image_yscale,image_angle,image_blend,image_alpha);
+	//draw_sprite_ext(sprite_index,image_index,x,y+z,image_xscale*facing,image_yscale,image_angle,image_blend,image_alpha);
+	draw_sprite_ext(sprite_index,image_index,x,y+z,image_xscale,image_yscale,image_angle,image_blend,image_alpha);
 	//shader_reset();                    //comment this line and colormod shader set above to disable pallet swapping
 	
+}
+
+function enemy_attack_1(){
+	state_name = "attack_1";
+	
+	//stop any leftover momentem / movement
+	x_speed = 0;
+	y_speed = 0;
+	
+	//if you're on the ground, press attack, in free state, and not moving
+	if (sprite_index != sprite_attack_1){
+	
+		sprite_index = sprite_attack_1;
+		image_index = 0; //need to make sure you're starting from 0 so hitbox sync
+	
+		var _attack = instance_create_layer(x,y,"Instances",obj_hitbox_parent);
+		//speed of attack sprite an hitbox sprite must be same speed and start from index 0
+		//so that the sprites will be in sync
+		_attack.sprite_index = sprite_attack_1_hb;
+		_attack.damage = attack_1_damage;
+		_attack.owner = id;
+		_attack.knockback = attack_1_knockback;
+		_attack.hit_spark_x = attack_1_hit_spark_x*facing;
+		_attack.hit_spark_y = attack_1_hit_spark_y;
+		_attack.image_xscale = _attack.image_xscale*facing;
+		_attack.attack_depth_range = 100;
+	
+	}	
+
+	
+	//reset back to idle if your animation would loop after this frame
+	if (animation_end()){
+		sprite_index = sprite_idle;	
+		state = enemy_state_stand_free;
+	}	
 }

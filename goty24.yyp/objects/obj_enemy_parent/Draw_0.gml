@@ -28,5 +28,8 @@ else{
 
 flash_white();
 
+draw_text(x,y+40,"hp "+string(hp_current));
+draw_text(x,y+80,"state "+string(state_name));
+draw_text(x,y+120,"facing "+string(facing));
 
 //draw_text(x,y+100,floor(distance_to_object(obj_player_parent)))

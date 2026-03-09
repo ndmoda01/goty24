@@ -7,6 +7,8 @@ facing = RIGHT_SIDE;
 
 flash = 0;
 state = enemy_state_stand_free;
+state_name = "";
+
 dead = false;
 
 target_player = noone;
@@ -51,6 +53,7 @@ sprite_shadow		= spr_shadow;
 sprite_shadow_long	= spr_shadow_long;
 sprite_walk			= spr_enemy_punk_guy_walk;
 sprite_attack_1		= spr_enemy_punk_guy_punch_2;
+sprite_attack_1_hb  = spr_enemy_punk_guy_punch_2_hb_2;
 sprite_dead			= spr_enemy_punk_guy_dead;
 
 color_mod = ColorModFromSprite(spr_enemy_punk_guy_pallet_1,0,true);
@@ -75,3 +78,6 @@ move_timer = 60 * 2;	// time until movement recalculates
 move_target_x = xstart;
 move_target_y = ystart;
 can_attack = false;
+
+//temp attack timer
+attack_timer = 60;

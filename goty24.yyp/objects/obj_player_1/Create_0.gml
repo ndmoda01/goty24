@@ -5,6 +5,7 @@
 event_inherited();
 
 player_number = 0;
+
 //hp_current = 3;
 
 //create the structs that will hold  all of the attack's data

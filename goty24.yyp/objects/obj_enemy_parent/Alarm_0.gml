@@ -1,3 +1,4 @@
+/*
 /// @desc
 //will be moved to custom timer if we decide this movement system works
 //the ai character first determines which side the target player 

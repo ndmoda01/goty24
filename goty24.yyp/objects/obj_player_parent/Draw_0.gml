@@ -32,6 +32,19 @@ else{
 
 //draw_text(x-6,y-10,string(x)+","+string(y));
 
+var _input_connected = InputPlayerIsConnected(player_number);
+draw_text(x-50,y+20,"Connected: "+string(_input_connected));
+
+var _input_device = InputPlayerGetDevice(player_number);
+switch(_input_device){
+	case -1: _input_device = "KBM"; break;
+	case 0: _input_device = "gp0"; break;
+	case 1: _input_device = "gp1"; break;
+	case -666: _input_device = "no device"; break;
+}
+draw_text(x-50,y+50,"Device: "+string(_input_device));
+
+
 
 
 flash_white();

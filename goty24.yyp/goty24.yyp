@@ -741,6 +741,8 @@
     {"id":{"name":"spr_enemy_punk_guy_hurt_2","path":"sprites/spr_enemy_punk_guy_hurt_2/spr_enemy_punk_guy_hurt_2.yy",},},
     {"id":{"name":"spr_enemy_punk_guy_idle","path":"sprites/spr_enemy_punk_guy_idle/spr_enemy_punk_guy_idle.yy",},},
     {"id":{"name":"spr_enemy_punk_guy_pallet_1","path":"sprites/spr_enemy_punk_guy_pallet_1/spr_enemy_punk_guy_pallet_1.yy",},},
+    {"id":{"name":"spr_enemy_punk_guy_punch_2_hb_2","path":"sprites/spr_enemy_punk_guy_punch_2_hb_2/spr_enemy_punk_guy_punch_2_hb_2.yy",},},
+    {"id":{"name":"spr_enemy_punk_guy_punch_2_hb","path":"sprites/spr_enemy_punk_guy_punch_2_hb/spr_enemy_punk_guy_punch_2_hb.yy",},},
     {"id":{"name":"spr_enemy_punk_guy_punch_2","path":"sprites/spr_enemy_punk_guy_punch_2/spr_enemy_punk_guy_punch_2.yy",},},
     {"id":{"name":"spr_enemy_punk_guy_walk","path":"sprites/spr_enemy_punk_guy_walk/spr_enemy_punk_guy_walk.yy",},},
     {"id":{"name":"spr_exploding_barrel_activated_2","path":"sprites/spr_exploding_barrel_activated_2/spr_exploding_barrel_activated_2.yy",},},

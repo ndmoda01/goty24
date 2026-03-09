@@ -5,9 +5,22 @@ if (keyboard_check_pressed(vk_f1)) debug = !debug;
 //restart game shortcut
  if (keyboard_check_pressed(vk_f4)) game_restart();
  
- //reset input for player 1
+ //manually reset input for player 1 (turn keyboard input off)
  //can be used reset player 1's input source from keyboard to the next input source (controller)
- if (keyboard_check_pressed(vk_f9)){}; //No longer available in v10, input_source_clear(0);
+ if (keyboard_check_pressed(vk_f9)){
+	//if p2 is not connected to controller 0, connect to that controller
+	if (InputDeviceIsAvailable(0) and InputDeviceIsConnected(0)){
+		InputPlayerSetDevice(0,0);
+	}
+	//connect to the next controller if controller 0 is taken
+	else{
+		if (InputDeviceIsAvailable(1) and InputDeviceIsConnected(1)){
+			InputPlayerSetDevice(1,0);
+		}
+	}
+	
+ 
+ }; //No longer available in v10, input_source_clear(0);
  
 //pause
 //prevent pause after game over and during a transition

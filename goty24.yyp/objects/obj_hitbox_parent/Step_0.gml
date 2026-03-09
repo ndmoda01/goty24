@@ -63,7 +63,7 @@ if (_hits > 0){
 						_hit_spark.sprite_index = spr_hit_spark;
 						_hit_spark.image_angle = irandom(360);
 						//audio_play_sound(snd_player_hit,2,false);
-						if (object_is_ancestor(object_index,obj_player_parent)) state = player_state_hit;
+						if (object_is_ancestor(object_index,obj_player_parent)){} //state = player_state_hit;
 						if (object_is_ancestor(object_index,obj_enemy_parent)){
 							
 							//if you're out of hitpoints, go straight to die
@@ -74,7 +74,7 @@ if (_hits > 0){
 							}
 							//otherwise get hit
 							else {
-									instance_destroy();
+									//instance_destroy();
 									//if (other.hard_knockdown == false) state = enemy_state_stand_hit;
 									//if (other.hard_knockdown == true) state = enemy_state_hard_knockdown;
 							}
@@ -147,8 +147,8 @@ if (_hits > 0){
 							}
 							//otherwise get hit
 							else {
-									if (other.hard_knockdown == false) state = enemy_state_stand_hit;
-									if (other.hard_knockdown == true) state = enemy_state_hard_knockdown;
+									//if (other.hard_knockdown == false) state = enemy_state_stand_hit;
+									//if (other.hard_knockdown == true) state = enemy_state_hard_knockdown;
 							}	
 						}
 					}

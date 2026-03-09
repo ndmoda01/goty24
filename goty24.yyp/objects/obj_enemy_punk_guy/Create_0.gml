@@ -1,7 +1,7 @@
 event_inherited();
 
 //set your specific variables
-hp_current = 40;
+hp_current = 10;
 
 //set your specific sprites
 sprite_hit = spr_enemy_punk_guy_hurt_2;
